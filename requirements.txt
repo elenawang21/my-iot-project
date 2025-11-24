@@ -1,0 +1,5 @@
+zenml[server]==0.57.0
+bentoml==1.2.16
+mlflow==2.12.1
+scikit-learn==1.5.0
+optuna
