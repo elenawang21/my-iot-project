@@ -16,7 +16,7 @@ def fe_ml_transform(
     ML FE TRANSFORM-ONLY STEP
     Loads the saved scaler.pkl from fe_ml step.
     """
-     # ✅ 1. 对 label 完全不敏感（关键）
+     # drop label
     df= df.drop(columns=["label"], errors="ignore")
     
     # 1. Load saved scaler

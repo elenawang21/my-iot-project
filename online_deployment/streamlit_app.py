@@ -44,13 +44,13 @@ st.sidebar.caption(f"Loaded ALL entities: {len(entities_all)}")
 st.sidebar.caption(f"Current entity length: {T} rows (~{T} minutes)")
 
 
-START_DT = dt.datetime(2025, 1, 1, 0, 0, 0)  # set start time：每分钟一条
+START_DT = dt.datetime(2025, 1, 1, 0, 0, 0)  # set start time：each line 1 min
 END_DT = START_DT + dt.timedelta(minutes=max(T - 1, 0))
 
 st.sidebar.caption(f"Loaded: {T} rows (≈ {T} minutes)")
 st.sidebar.subheader("Select time range (slider)")
 
-#  index slider，旁边显示时间
+#  index slider，show time
 default_end_idx = min(500, max(T - 1, 1))
 start_idx, end_idx = st.sidebar.slider(
     "Range (minutes index)",
@@ -173,7 +173,7 @@ if run_if:
         r3.metric("throughput (windows/s)", f"{throughput:,.1f}")
         r4.metric("trust (IF)", f"{tscore:.4f}")
 
-        # IF 真实期望维度（调试/论文解释很好用）
+        # IF expected dimensions
         expected = getattr(ifm, "n_features_in_", None)
         st.caption(f"IF: threshold={thr_if:.6f}, model_n_features_in_={expected}")
 

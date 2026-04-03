@@ -42,7 +42,7 @@ def anomaly_rate_if(
 
     X = np.asarray(X_seg, dtype=float)
 
-    # 允许传进来的是 (T, F) 或者已经展平过的 (N, expected)
+    # either allowed (T, F) or flatted (N, expected)
     expected = int(getattr(if_model, "n_features_in_", 0))
     if expected <= 0:
         raise RuntimeError("IF model missing n_features_in_ (model not fitted?)")
@@ -52,7 +52,7 @@ def anomaly_rate_if(
 
     T, F = X.shape
 
-    # ✅ case A: X already flattened to expected features (N, expected)
+    # case A: X already flattened to expected features (N, expected)
     if F == expected:
         X_flat = X
     else:
@@ -73,10 +73,10 @@ def anomaly_rate_if(
             axis=0
         )
 
-    # ✅ scaler must match the flattened dimension
+    # scaler must match the flattened dimension
     X_flat_scaled = scaler.transform(X_flat)
 
-    # ✅ score direction: higher = more anomalous (align with your offline choice)
+    # score direction: higher = more anomalous (align with your offline choice)
     scores = -if_model.decision_function(X_flat_scaled)
 
     return float((scores > threshold).mean())

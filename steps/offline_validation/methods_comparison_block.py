@@ -32,7 +32,7 @@ def methods_comparison_block(
     y_pred = y_pred_raw.copy()
     for i in range(len(y_true)):
         if y_true[i] == 1 and y_pred_raw[i] == 1:
-            # 只要这段异常里有一个点被抓到，整段补齐
+            # once catch one anomaly point,complete the whole segment
             s, e = i, i
             while s > 0 and y_true[s-1] == 1: s -= 1
             while e < len(y_true)-1 and y_true[e+1] == 1: e += 1

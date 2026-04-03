@@ -22,7 +22,7 @@ def load_ref_df(entity: str) -> pd.DataFrame:
 
 
 def ks_consistency_same_as_offline(ref: pd.DataFrame, cur: pd.DataFrame) -> float:
-    """✅ 100%复制你 offline 的 KS 逻辑"""
+    """compy offline KS logic"""
     ks = []
     for i in range(ref.shape[1]):
         x = np.sort(ref.iloc[:, i].values)

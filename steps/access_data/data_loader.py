@@ -9,7 +9,7 @@ logger = get_logger(__name__)
 
 @step(enable_cache=False)
 def data_loader(entity_id: str, data_type: str) -> pd.DataFrame: 
-    """加载指定 Entity 和指定类型 (train/test/test_label) 的原始数据。"""
+    """load (train/test/test_label) raw data。"""
 
    
     filename = f"{entity_id}.txt"
@@ -32,11 +32,11 @@ def data_loader(entity_id: str, data_type: str) -> pd.DataFrame:
 )
 
 
-    # 处理 test_label
+    # process test_label
     if data_type == 'test_label':
         data.columns = ['label']
     else:
-        # 为 feature 命名
+        # name feature
         data.columns = [f'feature_{i}' for i in range(data.shape[1])]
         
 

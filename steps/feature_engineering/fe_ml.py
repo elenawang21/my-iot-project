@@ -41,5 +41,5 @@ def fe_ml(
     # 4. Transform features
     X_ml = scaler_ml.transform(X_df.values)
 
-    # 5. Return ONLY X_ml (important!)
+    # 5. Return ONLY X_ml
     return X_ml
