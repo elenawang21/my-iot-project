@@ -1,0 +1,6 @@
+{
+  "input_dim": 38,
+  "hidden_dim": 32,
+  "num_layers": 1,
+  "window_size": 50
+}

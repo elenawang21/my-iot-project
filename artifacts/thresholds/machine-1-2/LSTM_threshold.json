@@ -1,0 +1,5 @@
+{
+  "entity_id": "machine-1-2",
+  "model_name": "LSTM",
+  "threshold": 0.00035254325019195816
+}

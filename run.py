@@ -1,13 +1,30 @@
-# run_data_loader_test.py
-from pipelines.access_data_pipeline import access_data_validation_pipeline
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from pipelines.training_pipeline import training_pipeline
+from pipelines.validation_pipeline import validation_pipeline
+
 
 if __name__ == "__main__":
-    print("Starting data_loader test run for machine-1-1.txt...")
+    entity = "machine-2-5"
+    window = 50
+    MODELS = ["IF","LSTM"]
+
+    for model_name in MODELS:
+        #print(f"\n--- Training {model_name} ---")
+        #run=training_pipeline(
+            #entity_id=entity,
+            #window_size=window,
+            #model_name=model_name
+        #)
     
-    # 🚨 修正：直接在 .run() 方法中传递参数
-    access_data_validation_pipeline.run(
-        entity_id="machine-1-1.txt", 
-        data_type="train"
-    )
-    
-    print("Run finished. Please check ZenML UI for success status.")
+        
+        print("\n--- Running Validation {model_name} ---")
+        run = validation_pipeline(
+            entity_id=entity,
+            window_size=window,
+            model_name=model_name
+         )
+
+    print(f"Finished validation run for model: {model_name}")

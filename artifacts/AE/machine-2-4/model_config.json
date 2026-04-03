@@ -1,0 +1,6 @@
+{
+  "input_dim": 1900,
+  "latent_dim": 16,
+  "window_size": 50,
+  "feature_dim": 38
+}
