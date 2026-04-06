@@ -14,15 +14,6 @@ The project includes both offline evaluation and an online deployment-oriented p
 - Streamlit-based online trust generator for deployment-oriented use
 - ZenML-based pipeline organization for reproducible workflows
 
-## Installation
-Clone the repository and install the required dependencies.
-
-```bash
-git clone <your-repository-url>
-cd <my-iot-project>
-pip install -r requirements.txt
-```
-
 ## Project Structure
 - `artifacts/`  
   Stores saved models, models configuration, scalers, thresholds, intermediate outputs, and performance reports.
